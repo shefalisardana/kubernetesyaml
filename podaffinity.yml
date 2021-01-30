@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: with-pod-affinity
+  labels:
+    type: prod
+spec:
+  replicas: 3
+  selector:
+   matchLabels:
+     app: tier
+  template:
+    metadata:
+      labels:
+        app: tier
+    spec:
+     containers:
+      - name: with-pod-affinity
+        image: nginx
+     affinity:
+       podAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: color
+                operator: In
+                values:
+                - red
+            topologyKey: kubernetes.io/hostname
+
+
+

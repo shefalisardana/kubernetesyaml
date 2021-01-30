@@ -1,0 +1,30 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: sec-capabilties
+spec:
+  selector:
+    matchLabels:
+      app: sec-capabilties
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: sec-capabilties
+    spec:
+      securityContext:
+         runAsUser: 3000
+         fsGroup: 2000
+      containers:
+       - name: node-hello
+         image: gcr.io/google-samples/node-hello:1.0
+         volumeMounts:
+          - name: empty-ctx-vol
+            mountPath: /mnt
+         securityContext:
+           capabilities:
+#             add:  ["NET_RAW"]
+             drop: ["all"]
+      volumes:
+       - name: empty-ctx-vol
+         emptyDir: {}
