@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: nginx-resources
+  minReplicas: 4
+  maxReplicas: 8
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      targetAverageUtilization: 70
