@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: rbi-admin
+  namespace: kubernetes-dashboard
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: rbi-admin
+  namespace: kubernetes-dashboard
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: rbi-admin
+  namespace: kubernetes-dashboard
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: rbi-admin
+  namespace: kubernetes-dashboard

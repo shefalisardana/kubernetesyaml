@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mycronjob
+spec:
+   parallelism: 2
+   completions: 8
+   template:
+        spec:
+          containers:
+          - name: mycron-container
+            image: alpine
+            command: ['sh', '-c', 'echo Job Pod is Running ; sleep 5']
+          restartPolicy: OnFailure
