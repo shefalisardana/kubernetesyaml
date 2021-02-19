@@ -3,9 +3,9 @@ kind: Pod
 metadata:
   labels:
     color: red
-  name: nginx1
+  name: nginx
 spec:
   containers:
-  - image: nginx
-    name: nginx1
+  - image: ngin
+    name: nginx
 
