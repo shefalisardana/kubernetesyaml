@@ -1,0 +1,3 @@
+cpu more utilization k8s-master 6 Fri Feb 19 05:27:05 PST 2021
+cpu not utilized workernode1 3  Fri Feb 19 05:27:05 PST 2021
+cpu not utilized workernode2 3  Fri Feb 19 05:27:05 PST 2021
